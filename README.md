@@ -15,6 +15,10 @@ you can just
 git clone --depth=1 https://github.com/coatsy/weather.git
 ```
 (of course, you'll need [git])
+
+## Deployment
+Every time I push to this repo btw, [the site] gets auto-deployed to an Azure website using [Azure Continuous Deployment]
+
 ## Contact
 
 For more information on AngularJS please check out http://angularjs.org/
@@ -33,3 +37,5 @@ Cheers,
 [travis]: https://travis-ci.org/
 [http-server]: https://github.com/nodeapps/http-server
 [coatsy]: http://blogs.msdn.com/acoat
+[the site]: http://coatsySandbox.azurewebsites.net
+[Azure Continuous Deployment]: https://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/
