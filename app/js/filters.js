@@ -38,4 +38,25 @@ angular.module('weatherFilters', [])
 		console.log(answer);
 		return answer;
 	};
-});
+	})
+	.filter('latitude', function() {
+		return function(input) {
+			var hemisphere = 
+				input > 0 ? 'N' :
+				input < 0 ? 'S' :
+				'';
+			var deg = input * (input < 0 ? -1 : 1);
+			return deg.toString() + '\u00b0' + hemisphere;
+		}
+	})
+	.filter('longitude', function() {
+		return function(input) {
+			var hemisphere =
+				input > 0 ? 'E' :
+				input < 0 ? 'W' :
+				'';
+			var deg = input * (input < 0 ? -1 : 1);
+			return deg.toString() + '\u00b0' + hemisphere;
+		}
+	})
+;

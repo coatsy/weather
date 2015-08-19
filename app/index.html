@@ -38,18 +38,19 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-2">
-        Search: <input ng-model="city">
+        Search: <input ng-model="city" ng-blur="doSearch()" ng-keyup="$event.keyCode == 13 ? doSearch() : null">
+        <!-- <button ng-click="doSearch()">Get Weather</button> -->
       </div>
       <div class="col-md-10">
         <h1>Weather for {{weather.name}}, {{weather.sys.country}}</h1>
-        <p>({{weather.coord.lat}}, {{weather.coord.lon}})</p>
+        <p>({{weather.coord.lat | latitude}}, {{weather.coord.lon | longitude}})</p>
         <h2><img ng-src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" /> {{weather.weather[0].description}} {{weather.main.temp - 273 | number : 1}} &#x2103</h2>
         <p>Readings as at {{weather.dt*1000 | date:"dd/MM/yyyy @ hh:mma"}}</p>
         <ul>
           <li>Current temperature: {{weather.main.temp - 273 | number : 1}} &#x2103</li>
           <li>Sunrise: {{weather.sys.sunrise * 1000 | date:"dd/MM/yyyy @ h:mma"}}</li>
           <li>Sunset: {{weather.sys.sunset * 1000 | date:"dd/MM/yyyy @ h:mma"}}</li>
-          <li>Wind: {{weather.wind.deg | directionArrow}} {{weather.wind.speed * 3.6 | number : 1}} km/h {{weather.wind.deg | direction}} ({{weather.wind.deg}}&#x00b0)</li>
+          <li>Wind: {{weather.wind.deg | directionArrow}} {{weather.wind.speed * 3.6 | number : 1}} km/h {{weather.wind.deg | direction}} ({{weather.wind.deg | number : 0}}&#x00b0)</li>
         </ul>
       </div>
     </div>
