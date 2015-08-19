@@ -37,5 +37,5 @@ Cheers,
 [travis]: https://travis-ci.org/
 [http-server]: https://github.com/nodeapps/http-server
 [coatsy]: http://blogs.msdn.com/acoat
-[the site]: http://coatsySandbox.azurewebsites.net
+[the site]: http://coatsySandbox.azurewebsites.net/app
 [Azure Continuous Deployment]: https://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/
