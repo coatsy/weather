@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="weatherApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>What's the Weather?</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  -->
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"> 
+
+  
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+ 
+  <!--
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="view1/view1.js"></script>
+  <script src="view2/view2.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+  -->
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+</head>
+<body ng-controller="WeatherCtrl">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        Search: <input ng-model="city">
+      </div>
+      <div class="col-md-10">
+        <h1>Weather for {{weather.name}}, {{weather.sys.country}}</h1>
+        <p>({{weather.coord.lat}}, {{weather.coord.lon}})</p>
+        <h2><img ng-src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" /> {{weather.weather[0].description}} {{weather.main.temp - 273 | number : 1}} &#x2103</h2>
+        <p>Readings as at {{weather.dt*1000 | date:"dd/MM/yyyy @ hh:mma"}}</p>
+        <ul>
+          <li>Current temperature: {{weather.main.temp - 273 | number : 1}} &#x2103</li>
+          <li>Sunrise: {{weather.sys.sunrise * 1000 | date:"dd/MM/yyyy @ h:mma"}}</li>
+          <li>Sunset: {{weather.sys.sunset * 1000 | date:"dd/MM/yyyy @ h:mma"}}</li>
+          <li>Wind: {{weather.wind.speed * 3.6 | number : 1}} km/h {{weather.wind.deg | direction}} ({{weather.wind.deg}}&#x00b0)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <pre>{{weather | json}}</pre>
+</body>
+</html>
